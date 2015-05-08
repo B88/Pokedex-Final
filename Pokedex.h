@@ -64,21 +64,23 @@ public:
     }
 
     void displaySingle(int num){                //display used for only showing one pokemon at a time
-        Pokemon *pokePtr = findPoke(head, num);
+        Pokemon *pokePtr;
+        findPoke(head, num, pokePtr);
         cout << setw(15) << left << pokePtr -> name;
     }
 
     Pokemon* searchPoke(int num){               //extra function allows main to call searchPoke while only passing
-        return findPoke(head, num);             //the number of the desired pokedex entry and for findPoke to
+        Pokemon *pokePtr;
+        findPoke(head, num, pokePtr);
+        return pokePtr;             //the number of the desired pokedex entry and for findPoke to
     }                                           //execute recursively
 
-    Pokemon* findPoke(Pokemon *temp ,int num){  //traverses the linked list to find a node who's number field
-        if(temp){                               //matches the number passed
-            if(temp -> number == num) { return temp; }
-            if(temp -> number > num) { findPoke(temp -> left, num); }
-            if(temp -> number < num) { findPoke(temp -> right, num); }
+    void findPoke(Pokemon *temp ,int num, Pokemon *&ptr){ //traverses the linked list to find a node who's number field
+        if(temp){                                        //matches the number passed
+            if(temp -> number == num) { ptr = temp; }
+            if(temp -> number > num) { findPoke(temp -> left, num, ptr); }
+            if(temp -> number < num) { findPoke(temp -> right, num, ptr); }
         }
-        return nullptr;
     }
 
     void showPokes(){                           //extra function for displaying allows main to call showPokes

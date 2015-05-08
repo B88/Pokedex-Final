@@ -5,28 +5,28 @@
 #include <iostream>
 using namespace std;
 
-class Items{
+class Items{    //Items class declaration
 private:
     struct Slot{
-        string name;
-        int number;
+        string name;        //Holds the name of the item
+        int number;         //Holds the quantity of the item
     };
 
     Slot bag[10];
     int size;
 
 public:
-    Items();
-    void addItem(string);
-    void useItem(string);
-    void displayAll();
-    void sort();
+    Items();                //Constructor
+    void addItem(string);   //Function to add each item
+    void displayAll();      //Function to display all the items
+    void sort();            //Function which sorts the items alphabetically
 };
 
 Items::Items(){
     size = 0;
 };
 
+//Add items to the bag
 void Items::addItem(string thing){
     int spot = -1;
     for(int i = 0; i < size; i++) { if(bag[i].name == thing) { spot = i; } }
@@ -38,16 +38,7 @@ void Items::addItem(string thing){
     } else { cout << "Bag is full\n"; }
 }
 
-void Items::useItem(string thing){
-    int spot = -1;
-    for(int i = 0; i < size; i++) { if(bag[i].name == thing) { spot = i; } }
-    if(spot == -1) { cout << "No item found"; }
-    else if(bag[spot].number == 1){
-        for(int i = spot; i < size; i++) { bag[i] = bag[i+1]; }
-        size--; }
-    else { bag[spot].number--; }
-}
-
+//Display the items
 void Items::displayAll(){
     cout << "\n\t\tItems:" << endl;
     for(int i = 0; i < size; i++) { cout << bag[i].name << "\n          x " << bag[i].number << endl; }
@@ -55,6 +46,7 @@ void Items::displayAll(){
     cin.ignore();
 }
 
+//Bubble sort items alphabetically by name
 void Items::sort(){
     for(int i = 0; i < size; i++){
         for(int j = 0; j < size - 1; j++){
@@ -69,14 +61,15 @@ void Items::sort(){
 
 void items()
 {
-    Items one;
-    one.addItem("Repel");
+    Items one;                          //Define an instance of Items
+    
+    one.addItem("Repel");               //Add items
     one.addItem("Super Potion");
     one.addItem("Rare Candy");
     one.addItem("Escape Rope");
     one.addItem("Moon Stone");
     one.addItem("Antidote");
-    for(int i = 0; i < 3; i++) { one.addItem("Revive"); }
+    for(int i = 0; i < 3; i++) { one.addItem("Revive"); }           //Increase quantity of certain items
     for(int i = 0; i < 10; i++) { one.addItem("Poke Ball"); }
     for(int i = 0; i < 7; i++) { one.addItem("Potion"); }
     for(int i = 0; i < 5; i++) { one.addItem("Great Ball"); }

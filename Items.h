@@ -74,11 +74,12 @@ void items()
     one.addItem("Escape Rope");
     one.addItem("Moon Stone");
     one.addItem("Antidote");
-    for(int i = 0; i < 3; i++) { one.addItem("Revive"); }
+    for(int i = 0; i < 3; i++)  { one.addItem("Revive"); }
     for(int i = 0; i < 10; i++) { one.addItem("Poke Ball"); }
-    for(int i = 0; i < 7; i++) { one.addItem("Potion"); }
-    for(int i = 0; i < 5; i++) { one.addItem("Great Ball"); }
+    for(int i = 0; i < 7; i++)  { one.addItem("Potion"); }
+    for(int i = 0; i < 5; i++)  { one.addItem("Great Ball"); }
 
     one.sort();
+
     one.displayAll();
 }

@@ -29,7 +29,6 @@ void pokemonparty(int party[]){                                  //Pokemon Selec
         cout << "Lv: " << party[c + MAX_VALUES] << endl;        //and their levels
         c++;
     }
-    cout << "\nPress enter to return to the menu.\n\n\n";
-    fflush(stdin);
+    cout << "\nPress enter to return to the menu.\n";
     cin.ignore();
 }

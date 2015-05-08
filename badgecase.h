@@ -24,7 +24,6 @@ void showBadges()                       //Badges using Stacks
         badgeCase.pop();                //pop each badge off the stack
     }
 
-    cout << "\nPress enter to return to the menu.\n\n\n";
-    fflush(stdin);
+    cout << "\nPress enter to return to the menu.\n";
     cin.ignore();
 }

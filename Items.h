@@ -49,8 +49,7 @@ void Items::useItem(string thing){
 void Items::displayAll(){
     cout << "\n\t\tItems:" << endl;
     for(int i = 0; i < size; i++) { cout << bag[i].name << "\n          x " << bag[i].number << endl; }
-    cout << "\nPress enter to return to the menu.\n\n\n";
-    fflush(stdin);
+    cout << "\nPress enter to return to the menu.\n";
     cin.ignore();
 }
 

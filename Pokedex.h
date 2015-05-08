@@ -78,7 +78,7 @@ public:
             if(temp -> number > num) { findPoke(temp -> left, num); }
             if(temp -> number < num) { findPoke(temp -> right, num); }
         }
-        else { return nullptr; }
+        return nullptr;
     }
 
     void showPokes(){                           //extra function for displaying allows main to call showPokes

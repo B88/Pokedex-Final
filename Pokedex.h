@@ -84,8 +84,7 @@ public:
     void showPokes(){                           //extra function for displaying allows main to call showPokes
         cout << "\nNumber:     Name:          Type(s):\n";
         display(head);                          //without passing any parameters and for display to execute recursively
-        cout << "\nPress enter to return to the menu.\n\n\n";
-        fflush(stdin);
+        cout << "\nPress enter to return to the menu.\n";
         cin.ignore();
     }
 

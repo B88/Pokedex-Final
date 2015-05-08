@@ -20,8 +20,10 @@ int main()
         cout << "(D) Badge Case \n";
         cout << "(E) Exit \n";
         cout << "Enter choice A, B, C, D, or E: \n";
-
+        
         cin >> choice;                              //receives users selection
+        cin.ignore();                               //Skips the newline character
+        
         switch (choice){
             case 'a':
             case 'A': pokemon.showPokes();          //Function to display all Pokemon in the pokedex

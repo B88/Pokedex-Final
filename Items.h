@@ -1,13 +1,11 @@
-#ifndef __CS_252_Project__Badges__
-#define __CS_252_Project__Badges__
 #include <stdio.h>
 #include <string>
 #include <iostream>
 using namespace std;
 
-class Items{
+class Items{                        //Item bag
 private:
-    struct Slot{
+    struct Slot{                    //
         string name;
         int number;
     };
@@ -85,4 +83,3 @@ void items()
     one.sort();
     one.displayAll();
 }
-#endif

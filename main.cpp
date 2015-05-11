@@ -20,9 +20,9 @@ int main()
         cout << "(B) Pokemon\n";
         cout << "(C) Bag\n";
         cout << "(D) Badge Case \n";
-        cout << "(E) Exit \n";
-        cout << "(F) Type search\n";
-        cout << "Enter choice A, B, C, D, or E: \n";
+        cout << "(E) Type Search \n";
+        cout << "(F) Exit \n";
+        cout << "Enter choice A, B, C, D, E, or F: \n";
         
         cin >> choice;                              //receives users selection
         cin.ignore();                               //Skips the newline character
@@ -41,16 +41,16 @@ int main()
             case 'D': showBadges();                 //Function to display our badges
                     break;
             case 'e':
-            case 'E': cout << "Goodbye! \n";        //Exit
-                    return 0;
-            case 'f':
-            case 'F':
+            case 'E':
                 cout << "Enter type you would like to search for." << endl;
                 cin >> type;
                 pokemon.printType(type);
-                
-                
-            default : cout << "Invalid, please enter A, B, C, D, or E!\n";
+                cin.ignore();
+                    break;
+            case 'f':
+            case 'F': cout << "Goodbye! \n";        //Exit
+                    return 0;
+            default : cout << "Invalid, please enter A, B, C, D, E, or F!\n";
         }
     }
     return 0;

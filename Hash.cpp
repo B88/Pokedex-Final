@@ -14,45 +14,44 @@ Hash::Hash(){
 int Hash::hashFunc(string key)
 {
     int index;
-    if(key == "Grass")
+    if(key == "Grass" || key == "grass")
         index = 1;
-    else if(key == "Poison")
+    else if(key == "Poison" || key == "poison")
         index = 2;
-    else if(key == "Fire")
+    else if(key == "Fire" || key == "fire")
         index = 3;
-    else if(key == "Electric")
+    else if(key == "Electric" || key == "electric")
         index = 4;
-    else if(key == "Rock")
+    else if(key == "Rock" || key == "rock")
         index = 5;
-    else if(key == "Ghost")
+    else if(key == "Ghost" || key == "ghost")
         index = 6;
-    else if(key == "Ice")
+    else if(key == "Ice" || key == "ice")
         index = 7;
-    else if(key == "Flying")
+    else if(key == "Flying" || key == "flying")
         index = 8;
-    else if(key == "Steel")
+    else if(key == "Steel" || key == "steel")
         index = 9;
-    else if(key == "Fighting")
+    else if(key == "Fighting" || key == "fighting")
         index = 10;
-    else if(key == "Normal")
+    else if(key == "Normal" || key == "normal")
         index = 11;
-    else if(key == "Ground")
+    else if(key == "Ground" || key == "ground")
         index = 12;
-    else if(key == "Dragon")
+    else if(key == "Dragon" || key == "dragon")
         index = 13;
-    else if(key == "Bug")
+    else if(key == "Bug" || key == "bug")
         index = 14;
-    else if(key == "Fairy")
+    else if(key == "Fairy" || key == "fairy")
         index = 15;
-    else if(key == "Psychic")
+    else if(key == "Psychic" || key == "psychic")
         index = 16;
-    else if(key == "Water")
+    else if(key == "Water" || key == "water")
         index = 17;
     else
         index = 0;
     
     return index;
-    
 }
 
 void Hash::addPokes(int num, string pokeName, string pokeType1, string pokeType2){

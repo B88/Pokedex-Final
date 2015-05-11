@@ -2,7 +2,8 @@
 #include <iomanip>
 #include <string>
 #include <sstream>                              //For converting strings to ints
-#include <fstream>                              //For manipulating files
+#include <fstream>
+#include "Hash.h" //For manipulating files
 using namespace std;
 
 class Pokedex{                                  //Pokedex using Binary Tree
@@ -13,6 +14,7 @@ private:
         Pokemon *left, *right;
     };
     Pokemon *head;
+    Hash list;
 
 public:
     Pokedex(){                                  //constructor automatically fills the pokedex with
@@ -89,6 +91,11 @@ public:
         cout << "\nPress enter to return to the menu.\n";
         cin.ignore();
     }
+    
+    //NEW
+    void printType(string type){
+        list.get(type);
+    }
 
     void getPokesFile(){                        //gets all information on each pokemon from a file to add to the BST
 
@@ -132,6 +139,8 @@ public:
                 }
 
                 addPokes(number, name, type1, type2);           //Create a pokemon node.
+                
+                list.addPokes(number, name, type1, type2);      //Create a pokemon hash.
                 count ++;
             }
             myfile.close();                                     //Close the file when finished with it.

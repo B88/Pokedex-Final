@@ -95,6 +95,9 @@ public:
     //NEW
     void printType(string type){
         list.get(type);
+        cout << "\nPress enter to return to the menu.\n";
+        cin.ignore();
+        
     }
 
     void getPokesFile(){                        //gets all information on each pokemon from a file to add to the BST

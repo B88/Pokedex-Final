@@ -3,10 +3,12 @@
 #include "pokemonparty.h"
 #include "items.h"
 #include "badgecase.h"
+#include <string>
 using namespace std;
 
 int main()
 {
+    string type;
     char choice;
     Pokedex pokemon;                                //Creates an object which will add all pokemon to the pokedex
     int party[12];                                  //an array of ints to store party pokemon's numbers and their levels
@@ -19,6 +21,7 @@ int main()
         cout << "(C) Bag\n";
         cout << "(D) Badge Case \n";
         cout << "(E) Exit \n";
+        cout << "(F) Type search\n";
         cout << "Enter choice A, B, C, D, or E: \n";
         
         cin >> choice;                              //receives users selection
@@ -40,6 +43,13 @@ int main()
             case 'e':
             case 'E': cout << "Goodbye! \n";        //Exit
                     return 0;
+            case 'f':
+            case 'F':
+                cout << "Enter type you would like to search for." << endl;
+                cin >> type;
+                pokemon.printType(type);
+                
+                
             default : cout << "Invalid, please enter A, B, C, D, or E!\n";
         }
     }

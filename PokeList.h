@@ -4,7 +4,7 @@
 #include <fstream>
 using namespace std;
 
-class PokeList{
+class PokeList{                         //Doubly linked list class
 private:
     struct Pokes{
         int number;
@@ -12,30 +12,30 @@ private:
         Pokes *next, *prev;
     };
     Pokes *head;
-    
+
 public:
     PokeList(){
         head = nullptr;
     }
-    
-    void pokeDelete(Pokes *temp){
-        if (temp->next != nullptr){
-            pokeDelete(temp->next);
+
+    void pokeDelete(Pokes *temp){       //pokeDelete cleans up memory when we're
+        if (temp->next != nullptr){     //done with the list by traversing the list
+            pokeDelete(temp->next);     //with recursion
         }
-        delete temp;
+        delete temp;                    //and deleting each node on the way back
         temp = nullptr;
     }
-    
+
     void addPokes(int num, string pokeName, string pokeType1, string pokeType2){
-        Pokes *newPokePtr = new Pokes;
+        Pokes *newPokePtr = new Pokes;      //addPokes sets the node's fields
         newPokePtr -> number = num;
         newPokePtr -> name = pokeName;
         newPokePtr -> next = nullptr;
         newPokePtr -> prev = nullptr;
         newPokePtr -> type1 = pokeType1;
         newPokePtr -> type2 = pokeType2;
-        
-        if (!head) {
+
+        if (!head) {                        //Then it adds the node to the list
             head = newPokePtr;
             newPokePtr -> prev = head;
         } else {
@@ -47,21 +47,18 @@ public:
             newPokePtr -> prev = pokePtr;
         }
     }
-    
-    void display(Pokes* pokePtr){
+
+    void display(Pokes* pokePtr){           //Function to display the linked list
         cout << "Number:     Name:          Type(s):\n";
-        if(pokePtr -> next){
-            display(pokePtr -> next);
-        }
-        cout << setw(7) << right << pokePtr -> number << "     " << left << setw(10) << pokePtr -> name << "     " << setw(8) << pokePtr -> type1 << " "<< setw(8) << pokePtr -> type2 << endl << endl;
+        if(pokePtr -> next) { display(pokePtr -> next); }
+        cout << setw(7) << right << pokePtr -> number << "     " << left << setw(10) << pokePtr -> name;
+        cout << "     " << setw(8) << pokePtr -> type1 << " "<< setw(8) << pokePtr -> type2 << endl << endl;
     }
 
-    void showPokes(){
-        display(head);
-    }
-    
-    ~PokeList(){
-        Pokes *temp = head;
+    void showPokes() { display(head); }     //Used to call a recursive display without
+                                            //passing any variables
+    ~PokeList(){                            //Deconstructor uses pokeDelete to clean up
+        Pokes *temp = head;                 //memory
         pokeDelete(temp);
     }
 };
